@@ -1,0 +1,145 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credencial Lateral</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            width: 450px; /* Tamaño de la tarjeta */
+            height: 220px; /* Altura ajustada */
+            display: flex; /* Usamos flexbox para el diseño lateral */
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            justify-content: space-between; /* Separa la foto de los datos */
+            align-items: center; /* Centra verticalmente */
+            position: relative; /* Necesario para los pseudo-elementos */
+        }
+
+        /* Curvas en las esquinas */
+        .card::before,
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 150px; /* Tamaño de la curva aumentado */
+            height: 150px; /* Tamaño de la curva aumentado */
+            background-color: #3180d4; /* Azul */
+            border-radius: 50%;
+            z-index: 1; /* Pone la curva debajo de la foto */
+        }
+
+        /* Esquina superior derecha */
+        .card::before {
+            top: -50px; /* Ajustado para que no toque el contenido */
+            right: -50px; /* Ajustado para que no toque el contenido */
+        }
+
+        /* Esquina inferior izquierda */
+        .card::after {
+            bottom: -50px; /* Ajustado para que no toque el contenido */
+            left: -50px; /* Ajustado para que no toque el contenido */
+            background-color: #b2e462; /* Verde */
+        }
+
+        /* Estilo para la foto de la persona */
+        .photo-container {
+            width: 150px; /* Foto más grande */
+            height: 150px; /* Foto cuadrada más grande */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Necesario para z-index */
+            z-index: 2; /* Hace que la foto esté encima del círculo */
+        }
+
+        .photo-container img {
+            width: 100%; /* La imagen ocupa todo el contenedor */
+            height: 100%;
+            object-fit: contain; /* Mantiene las proporciones sin recortar */
+            border-radius: 10px; /* Esquinas redondeadas */
+        }
+
+        /* Contenedor para la información a la derecha */
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra la información verticalmente */
+            align-items: flex-start; /* Alinea a la izquierda */
+            flex-grow: 1; /* Hace que este bloque ocupe el espacio restante */
+            margin-left: 20px; /* Espacio adicional a la izquierda */
+        }
+
+        .info-container h2 {
+            margin: 5px 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .info-container p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .info-container .representante {
+            font-weight: bold;
+            color: #565759;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Logo en la parte diagonal superior izquierda */
+        .logo {
+            position: absolute;
+            bottom: 30px; /* Mover hacia arriba */
+            right: 30px;  /* Mover hacia la izquierda */
+            width: 50px; /* Tamaño del logo, puedes ajustarlo */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Contenedor de la foto de Paulina -->
+        <div class="photo-container">
+            <img src="paulina.jpeg" alt="Foto de Paulina">
+        </div>
+
+        <!-- Contenedor de la información a la derecha -->
+        <div class="info-container">
+            <h2>Paulina Salgado F</h2>
+            <p class="representante">REPRESENTANTE COMERCIAL</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> paulina.salgado@newpath.cl</a></p>
+                <p><strong>Celular:</strong> +56961729199</p>
+            </div>
+        </div>
+
+        <!-- Logo en la parte diagonal superior izquierda -->
+        <img src="logo.png" alt="Logo de la empresa" class="logo"> <!-- Cambia 'logo.png' por el logo que deseas agregar -->
+    </div>
+
+</body>
+</html>
