@@ -26,6 +26,7 @@
             justify-content: space-between; /* Separa la foto de los datos */
             align-items: center; /* Centra verticalmente */
             position: relative; /* Necesario para los pseudo-elementos */
+            flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
         }
 
         /* Curvas en las esquinas */
@@ -40,10 +41,10 @@
             z-index: 1; /* Pone la curva debajo de la foto */
         }
 
-        /* Esquina superior derecha */
+        /* Esquina superior derecha - ajustado */
         .card::before {
             top: -50px; /* Ajustado para que no toque el contenido */
-            right: -50px; /* Ajustado para que no toque el contenido */
+            right: -80px; /* Mover más lejos para evitar que se superponga con el texto */
         }
 
         /* Esquina inferior izquierda */
@@ -117,6 +118,67 @@
             width: 50px; /* Tamaño del logo, puedes ajustarlo */
             height: auto;
         }
+
+        /* Responsividad para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .card {
+                width: 350px; /* Redimensionar la tarjeta para pantallas medianas */
+                height: auto; /* Ajustar la altura para que no se corte el contenido */
+                flex-direction: column; /* Cambiar a disposición vertical */
+                padding: 15px;
+            }
+
+            .photo-container {
+                width: 120px; /* Ajustar el tamaño de la foto */
+                height: 120px;
+            }
+
+            .info-container {
+                margin-left: 0; /* Eliminar margen izquierdo en pantallas pequeñas */
+                text-align: center; /* Centrar el texto */
+            }
+
+            .card::before {
+                top: -30px; /* Ajustar la posición del círculo azul */
+                right: -60px; /* Moverlo más lejos del contenido */
+            }
+
+            .card::after {
+                bottom: -30px; /* Ajustar la posición del círculo verde */
+                left: -30px; /* Ajustar la posición para que no se sobreponga con la foto */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 280px; /* Redimensionar la tarjeta para pantallas pequeñas */
+                padding: 10px;
+            }
+
+            .photo-container {
+                width: 100px; /* Ajustar aún más el tamaño de la foto */
+                height: 100px;
+            }
+
+            .info-container h2 {
+                font-size: 18px; /* Ajustar el tamaño de la fuente del nombre */
+            }
+
+            .info-container p {
+                font-size: 12px; /* Reducir tamaño de texto */
+            }
+
+            .card::before {
+                top: -20px; /* Ajustar la posición del círculo azul */
+                right: -40px; /* Mover más hacia la derecha */
+            }
+
+            .card::after {
+                bottom: -20px; /* Ajustar la posición del círculo verde */
+                left: -20px; /* Moverlo más lejos del borde */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -132,14 +194,15 @@
             <h2>Paulina Salgado F</h2>
             <p class="representante">REPRESENTANTE COMERCIAL</p>
             <div class="contact-info">
-                <p><strong>Email:</strong> paulina.salgado@newpath.cl</a></p>
+                <p><strong>Email:</strong> paulina.salgado@newpath.cl</p>
                 <p><strong>Celular:</strong> +56961729199</p>
             </div>
         </div>
 
         <!-- Logo en la parte diagonal superior izquierda -->
-        <img src="logo.png" alt="Logo de la empresa" class="logo"> <!-- Cambia 'logo.png' por el logo que deseas agregar -->
+        <img src="logo.png" alt="Logo de la empresa" class="logo">
     </div>
 
 </body>
 </html>
+
