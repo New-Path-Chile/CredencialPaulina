@@ -38,7 +38,7 @@
             height: 150px; /* Tamaño de la curva aumentado */
             background-color: #3180d4; /* Azul */
             border-radius: 50%;
-            z-index: 1; /* Pone la curva debajo de la foto */
+            z-index: 0; /* Círculo debajo de la foto y texto */
         }
 
         /* Esquina superior derecha - ajustado */
@@ -62,7 +62,7 @@
             justify-content: center;
             align-items: center;
             position: relative; /* Necesario para z-index */
-            z-index: 2; /* Hace que la foto esté encima del círculo */
+            z-index: 1; /* Hace que la foto esté encima del círculo */
         }
 
         .photo-container img {
@@ -80,6 +80,7 @@
             align-items: flex-start; /* Alinea a la izquierda */
             flex-grow: 1; /* Hace que este bloque ocupe el espacio restante */
             margin-left: 20px; /* Espacio adicional a la izquierda */
+            z-index: 2; /* Asegura que la información esté por encima del círculo */
         }
 
         .info-container h2 {
@@ -205,4 +206,5 @@
 
 </body>
 </html>
+
 
